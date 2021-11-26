@@ -13,6 +13,8 @@ namespace AwesomeXamarinApp
         public MainPage()
         {
             InitializeComponent();
+
+            // Comentario
         }
     }
 }
