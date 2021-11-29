@@ -1,25 +1,15 @@
-name: hello-world
+name: CI on Xamarin Android Project
 on: push
 jobs:
-  helloworld-job:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: macos-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2.4.0
-    
-      - name: print message
-        run: echo "Hello World from GitHub Actions!"
         
-      - name: run multiline script
+      - name: Android
         run: |
-          echo First line,
-          echo Second line
-
-      - name: show current directory content
-        run: |
-          ls
-      
-      - name: show parent directory content
-        run: |
-          cd ..
-          ls
+          nuget restore
+          cd AwesomeXamarinApp
+          cd AwesomeXamarinApp.Android
+          msbuild AwesomeXamarinApp.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
