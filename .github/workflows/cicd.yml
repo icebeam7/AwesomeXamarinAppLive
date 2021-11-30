@@ -28,7 +28,7 @@ jobs:
       run: nuget restore
       
     - name: Build Android
-      run: MSBuild /t:SignAndroidPackage /p:Configuration=Release /p:AndroidPackageFormat=apk /p:AndroidKeyStore=true /p:AndroidSigningKeyAlias=cursoxamarin /p:AndroidSigningKeyPass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidSigningKeyStore=cursoxamarin.jks /p:AndroidSigningStorePass=${{ secrets.KEYSTORE_PASSWORD }} ./AwesomeXamarinApp/AwesomeXamarinApp.Android/AwesomeXamarinApp.Android.csproj
+      run: MSBuild /t:SignAndroidPackage /p:Configuration=Release /p:AndroidPackageFormat=apk /p:AndroidKeyStore=true /p:AndroidSigningKeyAlias=CursoXamarinLive /p:AndroidSigningKeyPass=${{ secrets.KEYSTORE_PASSWORD }} /p:AndroidSigningKeyStore=cursoxamarin.jks /p:AndroidSigningStorePass=${{ secrets.KEYSTORE_PASSWORD }} ./AwesomeXamarinApp/AwesomeXamarinApp.Android/AwesomeXamarinApp.Android.csproj
 
     - name: Obtain Android APK file
       uses: actions/upload-artifact@v2.2.4
