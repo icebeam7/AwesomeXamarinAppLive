@@ -34,4 +34,8 @@ jobs:
         name: Xamarin Awesome App
         path: AwesomeXamarinApp/AwesomeXamarinApp.Android/bin/Release/com.companyname.awesomexamarinapp-Signed.apk
 
+    - name: Setup App Center CLI
+      run: npm install -g appcenter-cli
 
+    - name: Upload Android app to App Center
+      run: appcenter distribute release --file ./AwesomeXamarinApp/AwesomeXamarinApp.Android/bin/Release/com.companyname.awesomexamarinapp-Signed.apk --app icebeam/AwesomeXamarinApp --group Collaborators --token ${{ secrets.APP_CENTER_TOKEN }}
