@@ -38,4 +38,6 @@ jobs:
       run: npm install -g appcenter-cli
 
     - name: Upload Android app to App Center
-      run: appcenter distribute release --file ./AwesomeXamarinApp/AwesomeXamarinApp.Android/bin/Release/com.companyname.awesomexamarinapp-Signed.apk --app icebeam/AwesomeXamarinApp --group Collaborators --token ${{ secrets.APP_CENTER_TOKEN }}
+      run: | 
+        appcenter distribute release --file ./AwesomeXamarinApp/AwesomeXamarinApp.Android/bin/Release/com.companyname.awesomexamarinapp-Signed.apk --app icebeam/LiveAwesomeXamarinApp --group Collaborators --token ${{ secrets.APP_CENTER_TOKEN }}
+        appcenter distribute release --file ./AwesomeXamarinApp/AwesomeXamarinApp.Android/bin/Release/com.companyname.awesomexamarinapp-Signed.apk --app icebeam/LiveAwesomeXamarinApp --group BetaTesters --token ${{ secrets.APP_CENTER_TOKEN }}
